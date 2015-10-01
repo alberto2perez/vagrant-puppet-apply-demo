@@ -1,5 +1,10 @@
 class squid::install{
 
+  package { 
+      ${::squid::requirements}: 
+        ensure =>'present',
+  }
+
   file {
     "${::squid::params::src_dir}/${::squid::tarball}":
       ensure => 'present',
